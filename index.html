@@ -10,19 +10,48 @@
 <body>
   <script>
 
+    /* const colors = ['red', 'green', 'blue']
+    const color1 = colors[0]
+    const color2 = colors[1]
+    const color3 = colors[2] */
+
+    // 순서만 옳게 대응되면 되는 거라 이름 짓는 건 큰 의미 없음. 
+    // 배열에 대한 비구조 할당 (순서만 쌍으로 맞추면 됨.)
+    const [color1, color2, color3] = ['red', 'green', 'blue']
+    console.log(color1);
+    console.log(color2);
+    console.log(color3);
+
+
+
+    /* const student1 = {
+      name: 'David',
+      age: 20,
+      isFemale: false
+    }
+    const name = student1.name;
+    const age = student1.age;
+    const isFemale = student1.isFemale;
+    console.log(age); */
+    const student1 = {
+      name: 'David',
+      age: 20,
+      isFemale: false
+    }
+    // 변수명을 반드시 property key값으로 지정해야 함. 
+    // name:name1 의 의미 : 객체의 property 값 자체를 뽑아낼 때에는 반드시 key값으로 뽑아야 하지만, name으로 뽑은 뒤 name1 이라는 다시 다른 변수명으로 변경처리 가능. (다른 변수명과 겹쳐 오류가 생겨 변수명을 변경해야 할 경우)
+    const { name: name1, age, isFemale } = student1;
+    console.log(name1);
+    console.log(age);
+    console.log(isFemale);
+
     /*
-      문자열에 변수를 쉽게 삽입하는 법 'Template literal'
+      비구조화 할당, 구조분해할당 (Destructuring Assignment)
+      : 객체나 배열의 기존 구조를 분해해서 각각의 값으로 재할당하는 것.
+      - 배열은 비구조화 할당 시, 변수명 임의로 지정 가능.
+      - 객체는 무조건 해당 property key값으로만 변수명을 지정해야 함.
     */
 
-    function intro(name, age, address) {
-      console.log(`제 이름은 ${name}이고, 나이는 ${age + 1}살이며, 사는 곳은 ${address}입니다.`);
-    }
-    intro('조서현', 22, '김포');
-
-    function intro2(food, place, animal) {
-      console.log(`제가 좋아하는 음식은 ${food}이고, 좋아하는 장소는 ${place}이며, 좋아하는 동물은 ${animal}입니다.`);
-    }
-    intro2('마라탕', '바다', '고양이');
 
   </script>
 </body>
