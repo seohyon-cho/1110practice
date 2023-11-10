@@ -11,78 +11,18 @@
   <script>
 
     /*
-      기존 참조형자료 (배열, 객체)는, 변수로 복사 시 원본복사가 안 됨. 
-      (shallow copy: 얕은 복사 = 불변성 유지 X) 
-      : 기존 배열을 단순히 변수에 옮겨담을 시, 
+      문자열에 변수를 쉽게 삽입하는 법 'Template literal'
     */
-    const colors = ['red', 'green', 'blue']
-    const newColors = colors;
-    newColors[0] = 'hotpink';
 
-    // 아래 콘솔 확인 시 두 개의 배열 값 모두 변경된 것을 확인
-    console.log('colors', colors);
-    console.log('newColors', newColors);
-
-    /*
-      전개연산자 (Spread Operator)
-      - 참조형 자료를 완전복사 (Deep Copy, 불변성 유지됨)
-      - heap memory에 있는 값을 물리적으로 복사
-    */
-    const interests = ['game', 'movie', 'cartoon']
-    console.log(...interests);
-    // ...을 붙여서 interests 배열 안에 있는 값만 복사해서 newInterests 라는 새로운 배열로 생성.
-    const newInterests = [...interests]
-
-    newInterests[0] = 'reading';
-    console.log('interests', interests);
-    console.log('newInterests', newInterests);
-
-
-
-    // 값 복사 예제 1
-    const me = {
-      name: 'seohyon',
-      age: 20,
-      gender: 'female',
-      hobby: 'reading'
-    };
-    const me2 = { ...me };
-    me2['hobby'] = 'driving';
-
-    console.log('me', me);
-    console.log('me2', me2);
-
-    // 객체를 합치는 예제
-    // 작년 회원가입 정보라고 가정
-    const student1 = {
-      name: 'Michael',
-      age: 20
+    function intro(name, age, address) {
+      console.log(`제 이름은 ${name}이고, 나이는 ${age + 1}살이며, 사는 곳은 ${address}입니다.`);
     }
-    // 올해 회원가입 정보라고 가정
-    const extraInfo = {
-      name: 'Michael',
-      age: 21,
-      hobby: 'game'
+    intro('조서현', 22, '김포');
+
+    function intro2(food, place, animal) {
+      console.log(`제가 좋아하는 음식은 ${food}이고, 좋아하는 장소는 ${place}이며, 좋아하는 동물은 ${animal}입니다.`);
     }
-    // 작년 회원가입 정보 값은 유지하면서, 올해 회원가입 정보값을 업데이트한 새로운 데이터 추가
-    // 전개연산자를 이용하면, 원본을 유지하면서도 기존 2개의 객체값을 합칠 때 유용.
-    const newStudent = { ...student1, ...extraInfo }
-    console.log('student1', student1);
-    console.log('extraInfo', extraInfo);
-    console.log('newStudent', newStudent);
-    console.log('-------------');
-    newStudent.name = 'Andy';
-    newStudent.hobby = 'reading';
-    console.log('student1', student1);
-    console.log('extraInfo', extraInfo);
-    console.log('newStudent', newStudent);
-
-
-
-
-
-
-
+    intro2('마라탕', '바다', '고양이');
 
   </script>
 </body>
